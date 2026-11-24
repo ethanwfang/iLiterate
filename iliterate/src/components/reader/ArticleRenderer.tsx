@@ -50,7 +50,8 @@ export function ArticleRenderer({
   const [tocItems, setTocItems] = useState<TOCItem[]>([]);
   const [focusedHighlightId, setFocusedHighlightId] = useState<string | null>(null);
   const [savedScrollPosition, setSavedScrollPosition] = useState<number | null>(null);
-  const [readerMode, setReaderMode] = useState<ReaderMode>("default");
+  // Speed reader (RSVP) is hidden: nothing switches the mode away from "default".
+  const [readerMode] = useState<ReaderMode>("default");
   const [rsvpWordIndex, setRsvpWordIndex] = useState(0);
   const [rsvpTotalWords, setRsvpTotalWords] = useState(0);
   const [rsvpWpm, setRsvpWpm] = useState(250);
@@ -498,11 +499,6 @@ export function ArticleRenderer({
     window.getSelection()?.removeAllRanges();
   }, []);
 
-  // Handle RSVP mode toggle
-  const toggleRSVP = useCallback(() => {
-    setReaderMode((current) => (current === "rsvp" ? "default" : "rsvp"));
-  }, []);
-
   // Handle progress bar seek in RSVP mode
   const handleProgressSeek = useCallback((percentage: number) => {
     if (rsvpSeekFnRef.current) {
@@ -518,7 +514,6 @@ export function ArticleRenderer({
         contentWidth={sourceImageUrl ? "wide" : "article"}
         hideLeftSidebar={tocItems.length === 0}
         isRSVPMode={isRSVPMode}
-        onToggleRSVP={toggleRSVP}
         requestRightOpen={focusedHighlightId}
         leftSidebar={
           <TableOfContents
