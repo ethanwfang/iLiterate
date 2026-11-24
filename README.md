@@ -156,6 +156,10 @@ uvicorn main:app --reload
 
 The sidecar runs on `http://localhost:8000`.
 
+### Deploying your own copy
+
+See [`iliterate/docs/DEPLOYMENT.md`](iliterate/docs/DEPLOYMENT.md) to run the app on your own Supabase, Render, and Vercel accounts.
+
 ---
 
 ## Usage Example
