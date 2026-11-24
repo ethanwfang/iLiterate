@@ -11,7 +11,6 @@ import {
   TrendingUp,
   GraduationCap,
   Users,
-  Sparkles,
   Trophy,
   Search,
   BookOpen,
@@ -53,7 +52,6 @@ export function AppSidebar() {
       items: [
         { titleKey: "nav.lessonPlan", href: "/lesson-plan", icon: GraduationCap },
         { titleKey: "nav.library", href: "/library", icon: Library },
-        { titleKey: "nav.studyChat", href: "/study-chat", icon: Sparkles },
         { titleKey: "nav.progress", href: "/progress", icon: TrendingUp },
       ],
     },

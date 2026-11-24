@@ -13,7 +13,6 @@ import {
   Users,
   ClipboardCheck,
   TrendingUp,
-  Sparkles,
   X,
 } from "lucide-react";
 import { useSearch } from "./SearchContext";
@@ -57,7 +56,6 @@ const PAGE_SHORTCUT_DEFS = [
   { titleKey: "nav.flashcards",  subtitleKey: "search.pages.flashcards",  href: "/flashcards",  icon: Layers },
   { titleKey: "nav.quizzes",     subtitleKey: "search.pages.quizzes",     href: "/quizzes",     icon: ClipboardCheck },
   { titleKey: "nav.lessonPlan",  subtitleKey: "search.pages.lessonPlan",  href: "/lesson-plan", icon: GraduationCap },
-  { titleKey: "nav.studyChat",   subtitleKey: "search.pages.studyChat",   href: "/study-chat",  icon: Sparkles },
   { titleKey: "nav.social",      subtitleKey: "search.pages.social",      href: "/social",      icon: Users },
   { titleKey: "nav.leaderboard", subtitleKey: "search.pages.leaderboard", href: "/leaderboard", icon: Trophy },
   { titleKey: "nav.progress",    subtitleKey: "search.pages.progress",    href: "/progress",    icon: TrendingUp },

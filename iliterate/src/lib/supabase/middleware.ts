@@ -1,5 +1,6 @@
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
+import { isHiddenFeaturePath } from "@/lib/features";
 
 // Routes that require authentication
 const PROTECTED_ROUTES = [
@@ -17,6 +18,13 @@ const PROTECTED_ROUTES = [
 const AUTH_ROUTES = ["/login", "/signup"];
 
 export async function updateSession(request: NextRequest) {
+  const { pathname: requestPath } = request.nextUrl;
+  if (isHiddenFeaturePath(requestPath)) {
+    return requestPath.startsWith("/api/")
+      ? NextResponse.json({ error: "Not found" }, { status: 404 })
+      : NextResponse.redirect(new URL("/library", request.url));
+  }
+
   let supabaseResponse = NextResponse.next({
     request,
   });
